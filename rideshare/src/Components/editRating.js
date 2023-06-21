@@ -35,7 +35,7 @@ function EditRating() {
                     <th>Feedback</th>
                 </tr>
                 {feedback
-                    .filter(item => (currEpoch - item.epoch >= 3600))
+                    .filter(item => (currEpoch - item.epoch <= (3600*24*1000)))
                     .map((item) => (
                         <tr key={item.id}>
                             <td>{item.tripId}</td>
