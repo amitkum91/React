@@ -72,9 +72,17 @@ const ConfirmBooking = (props) => {
         console.log(location.state); // result: 'some_value'
     }, [location]);
 
-    function RideAvailability(props) {
-        if (!(props.pickup in assignDriver[props.category]))
+    function toRender() {
+        if (location.state.pick in assignDriver[location.state.category])
+            return true;
+        else
+            return false;
+    }
+
+    function RideAvailability() {
+        if (!toRender()) {
             return <h2>No available drivers under {location.state.category} Category for pickup Location '{location.state.pick}'</h2>
+        }
         else
             return (
                 <>
@@ -114,12 +122,19 @@ const ConfirmBooking = (props) => {
 
     }
 
+    function getTripId() {
+        if (toRender())
+            return assignDriver[location.state.category][location.state.pick]['tripId'];
+        else
+            return ''
+
+    }
+
     let parms = {
         pickup: location.state.pick,
         drop: location.state.drop,
         epoch: Date.now(),
-        tripId: assignDriver[location.state.category][location.state.pick]['tripId'],
-        category: location.state.category
+        tripId: getTripId()
     };
 
     const Completionist = () => <span>Sorry! cancellation window over</span>;
@@ -150,25 +165,34 @@ const ConfirmBooking = (props) => {
         )
     }
 
+
+    function shouldRender() {
+        if (toRender()) {
+            return (
+                <div>
+                    <br />
+                    <br />
+                    <p id="cancel_window">Cancel within Pickup ETA</p>
+                    <Countdown date={Date.now() + 10000}>
+                        <div>
+                            <Completionist />
+                            <RemoveElement id="cancel_window" />
+                            <DisableButton id="cancelButton" />
+                            <RecordRide {...parms} />
+                            <TripEnd />
+                        </div>
+                    </Countdown>
+                </div>
+            );
+        }
+
+    }
+
     return (
         <div>
             <RideAvailability {...parms} />
-            <div>
-                <br />
-                <br />
-                <p id="cancel_window">Cancel within Pickup ETA</p>
-                <Countdown date={Date.now() + 10000}>
-                    <div>
-                        <Completionist />
-                        <RemoveElement id="cancel_window" />
-                        <DisableButton id="cancelButton" />
-                        <RecordRide {...parms} />
-                        <TripEnd />
-                    </div>
-                </Countdown>
-            </div>
+            {shouldRender()}
         </div>
-
     );
 };
 
