@@ -10,13 +10,26 @@ body{
     top : 0;
     z-index : 1;
     width : 100%;
-    background-color: rgba(115, 91, 226, 0.404);
+    background-color: whitesmoke;
+    background-image: url("images/carpool-service-weekend-journey-vector-24541669.jpg");
 }
-.container{
+.container_login{
     width : 1385px;
     margin : auto;
 }
-
+.lbl{
+    color: darkviolet;
+    font-weight: bold;
+    display: block;
+}
+.form-container{
+    width : 491px;
+}
+.h2{
+    color: white;
+    font-weight: bold;
+    display: block;
+}
 .nav_checkbox{
     display : grid;
     grid-template-columns: 1fr 1fr;
@@ -27,8 +40,9 @@ body{
 
 .logo {
     text-decoration: none;
-    color : white;
-    padding-left : 10px
+    color : mediumpurple;
+    padding-left : 10px;
+    font-weight: bold;
 }
 
 .tab-nav{
@@ -57,27 +71,35 @@ body{
 .content_nav li{
     display : inline-block;
     padding-right : 10px;
+    font-weight: bold;
 }
 
 .content_nav li a{
      text-decoration: none;
-     color : white;
+     color : mediumpurple;
      position: relative;
-
+     font-weight:bold;
 }
 
 .content_nav li a::after{
      content : '';
      display : block;
      height : 2 px;
-     background-color: white;
+     background-color: mediumpurple;
      position : absolute;
      left : 0;
      right : 0;
      transform-origin : right;
      transform : scale(0,1);
-     transition : transform ease in-out 0.5s
-
+     transition : transform ease in-out 0.5s;
+     font-weight: bold;
+    
+}
+.btn{
+  padding: 10px;
+  border: 1px solid gray;
+  background-color: lightseagreen;
+  border-radius: 5px;
 }
 .inactive{
     pointer-events: none;
@@ -88,8 +110,7 @@ body{
     transform : scale(1,1);
 }
 .errMsg{
-    z-index: 3;
-    color: peach; 
+    color: red; 
 }
 .content_section{
     width : 1500px;
@@ -115,7 +136,7 @@ body{
 
 input[type="text"],
 input[type="password"] {
-  height: 25px;
+  height: 41px;
   border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
@@ -135,7 +156,7 @@ input[type="submit"]:hover {
 
 .button-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .login-form {
@@ -209,8 +230,9 @@ input[type="submit"]:hover {
 
 .contentfooter{
     display : grid;
-    background-color: navy;
+    background-color: mediumaquamarine;
     width : 96em;
+    margin-top: 24px;
     
 }
 li{
@@ -221,7 +243,7 @@ h2{
     color : white;
 }
 a{
-    color : green;
+    color : bisque;
 }
 p{
     color : white;

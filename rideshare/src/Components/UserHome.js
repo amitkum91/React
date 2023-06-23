@@ -7,12 +7,13 @@ import { NavLink, useLocation, useHistory } from "react-router-dom";
 import "../App.css";
 
 function UserHome(props) {
-  console.log("userHome::::", props);
+  // console.log("userHome::::", props);
   const location = useLocation();
   const history = useHistory();
-  console.log(location.state);
+  //console.log("location:::",location.state);
+  const user = location.state;
+  //console.log("user::",user.state.userName);
   const [isHome, setIsHome] = useState(false);
-  const [registerFlag, setRegisterFlag] = useState("");
   const goToHome = (event) => {
     setIsHome(true);
   };
@@ -39,7 +40,7 @@ function UserHome(props) {
   }, [isHome]);
   return (
     <div className="header">
-      <div className="container">
+      <div className="container_login">
         <nav className="nav_checkbox">
           <a href="#" className="logo">
             RIDESHARE
@@ -67,7 +68,7 @@ function UserHome(props) {
             </li>
           </ul>
         </nav>
-        <div>{location.state.userName} Logged In successfully!!</div>
+        <div>{user.state.userName} Logged In successfully!!</div>
       </div>
       <div className="content_section">
         <div className="cardContainer">

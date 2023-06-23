@@ -10,7 +10,6 @@ const Register = () => {
     const [errorMessages, setErrorMessages] = useState({});
     const [password,setPassword] = useState('');
     const [userName,setUserName] = useState('');
-    const [registerFlag, setRegisterFlag] = useState("");
     const [isSubmitted, setIsSubmitted] = useState(false);
     const errors = {
         uname: "invalid username",
@@ -32,8 +31,20 @@ const Register = () => {
 
         setIsHome(true);
       }
-    const handleSubmit = (event) => {
-      
+      const name = userName;
+     
+      const blog = { name, password};
+  console.log("blog:::",JSON.stringify(blog));
+  const handleSubmit = (event) => {
+      fetch('http://localhost:9002/users', {
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(blog)
+    }) .then(response => {
+      return response.json();
+  }).then(data =>  {
+       console.log("data to enter",data);
+  });
         setIsHome(true);
         if (!password) {
             // Invalid password
@@ -60,7 +71,7 @@ const Register = () => {
     
   return (
     <div className='header'>
-    <div className="container">
+    <div className="container_login">
     <nav className="nav_checkbox">
                 <a href="#" className="logo">RIDESHARE</a>
                 <input type="checkbox" id="tab-nav" className="tab-nav"/>
@@ -82,17 +93,17 @@ const Register = () => {
      <div>
 
        <div className="input-container">
-         <label>Username </label>
+         <label class="lbl">Username </label>
          <input type="text" name="uname" value={userName} onChange={(e) => setUserName(e.target.value)} required />
          {renderErrorMessage("uname")}
        </div>
        <div className="input-container">
-         <label>Password </label>
+         <label class="lbl">Password </label>
          <input type="password" name="pass" value={password} onChange={(e) => setPassword(e.target.value)} required />
          {renderErrorMessage("pass")}
        </div>
        <div className="input-container">
-       <label>User Type </label>
+       <label class="lbl">User Type </label>
        <select
                             type="text"
                             value={drop}
@@ -104,7 +115,7 @@ const Register = () => {
                         </select>
                         </div>
        <div className="button-container">
-       <button id= "register1" type="submit" onClick={(e)=>{handleSubmit(e)}}>Register</button>         
+       <button id= "register1" class= "btn" type="submit" onClick={(e)=>{handleSubmit(e)}}><h2>Register</h2></button>         
      </div>
      <div className = "errMsg">
       {!isSubmitted ? <div>{errorMessages.message}</div> : ""}
