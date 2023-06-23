@@ -73,7 +73,6 @@ function UserHome(props) {
       <div className="content_section">
         <div className="cardContainer">
           <div className="rideItems">
-            <img src={vehicleLogo} alt="" />
             <button
               id="bookRide"
               type="submit"
@@ -81,18 +80,14 @@ function UserHome(props) {
                 bookRide(e);
               }}
             >
-              Book a ride
+            Book a ride
             </button>
-          </div>
-          <div className="rideItems">
-            <img src={payment} alt="" />
-            <button>Pay</button>
           </div>
         </div>
       </div>
-      <div className="contentfooter">
+      
         <Footer />
-      </div>
+    
     </div>
   );
 }

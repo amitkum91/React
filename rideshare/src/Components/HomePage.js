@@ -45,9 +45,6 @@ function HomePage(props) {
       });
   };
   useEffect(() => {
-    console.log("isSubmitted:", isSubmitted);
-    console.log("userNameNew:::", userName);
-    console.log("passwordNew:::", password);
     if (isSubmitted) {
       history.push("/UserHome", {
         state: { userName: userName, password: password },
