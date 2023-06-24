@@ -41,7 +41,7 @@ const Create = (props) => {
            <Message />
            {flag !== 'update' && <CreateJson />}
            {flag === 'update' && <UpdateJson />}
-           <Redirect to={{ pathname: "/", state: { from: location } }} />
+           <Redirect to={{ pathname: "/UserHome", state: { from: location } }} />
         </div>
     );
 }

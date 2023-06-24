@@ -78,7 +78,7 @@ export default function HoverRating() {
                 }
                 )} >Submit</button>
                 <button type="submit" onClick={() => history.push({
-                    pathname: '/'
+                    pathname: '/UserHome'
                 }
                 )} >Skip</button>
             </div>

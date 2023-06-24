@@ -10,6 +10,8 @@ function UserHome(props) {
   const location = useLocation();
   const history = useHistory();
   const user = location.state;
+
+  }
   const [isHome, setIsHome] = useState(false);
   const goToHome = (event) => {
     setIsHome(true);
@@ -24,7 +26,6 @@ function UserHome(props) {
     });
   };
   useEffect(() => {
-    console.log("setIsHome:", setIsHome);
     if (isHome) {
       history.push({
         pathname: "/",

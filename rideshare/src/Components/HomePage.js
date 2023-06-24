@@ -67,9 +67,9 @@ function HomePage(props) {
           </a>
           <input type="checkbox" id="tab-nav" className="tab-nav" />
           <label for="tab-nav" className="label">
-            <div class="burger"></div>
-            <div class="burger"></div>
-            <div class="burger"></div>
+            <div class="bgr"></div>
+            <div class="bgr"></div>
+            <div class="bgr"></div>
           </label>
           <ul className="content_nav">
             <li>
