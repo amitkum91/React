@@ -110,7 +110,7 @@ body{
     transform : scale(1,1);
 }
 .errMsg{
-    color: red; 
+    color: black; 
 }
 .content_section{
     width : 1500px;

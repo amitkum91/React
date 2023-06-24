@@ -11,8 +11,8 @@ const Register = () => {
   const [userName, setUserName] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const errors = {
-    uname: "INVALID USERNAME/PASSWORD",
-    pass: "INVALID USERNAME/PASSWORD",
+    uname: "Invalid email",
+    pass: "Password should not be blank, password length should be greater then 6",
   };
   const [drop, setDrop] = useState("");
 
@@ -57,6 +57,7 @@ const Register = () => {
   };
   useEffect(() => {
     if (isHome && isSubmitted) {
+      alert("Account created successfully.");
       history.push("/", {
         replace: true,
         state: { userName: userName, registeredFlag: "registerFlag" },
@@ -78,9 +79,9 @@ const Register = () => {
           </a>
           <input type="checkbox" id="tab-nav" className="tab-nav" />
           <label for="tab-nav" className="label">
-            <div class="burger"></div>
-            <div class="burger"></div>
-            <div class="burger"></div>
+            <div class="bgr"></div>
+            <div class="bgr"></div>
+            <div class="bgr"></div>
           </label>
           <ul className="content_nav">
             <li>
@@ -103,7 +104,7 @@ const Register = () => {
       <div className="content_section">
         <div>
           <div className="input-container">
-            <label class="lbl">Username </label>
+            <label class="lbl">Email </label>
             <input
               type="text"
               name="uname"

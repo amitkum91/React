@@ -6,6 +6,20 @@
       "feedback": "na",
       "epoch": 1687590762031,
       "id": 1
+    },
+    {
+      "tripId": "ID45678973",
+      "rating": 5,
+      "feedback": "Any feedback is appreciated!",
+      "epoch": 1687614428894,
+      "id": 2
+    },
+    {
+      "tripId": "ID45678973",
+      "rating": 4.5,
+      "feedback": "rating",
+      "epoch": 1687619604558,
+      "id": 3
     }
   ]
 }
