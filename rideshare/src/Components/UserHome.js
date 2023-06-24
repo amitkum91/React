@@ -10,7 +10,9 @@ function UserHome(props) {
   const location = useLocation();
   const history = useHistory();
   const user = location.state;
-
+  let loggedInFlag = false;
+  if(user?.state?.userName){
+    loggedInFlag = true;
   }
   const [isHome, setIsHome] = useState(false);
   const goToHome = (event) => {
@@ -66,7 +68,7 @@ function UserHome(props) {
             </li>
           </ul>
         </nav>
-        <div>{user.state.userName} Logged In successfully!!</div>
+        {loggedInFlag ? <div>{user.state.userName} Logged In successfully!!</div> : ""}
       </div>
       <div className="content_section">
         <div className="cardContainer">

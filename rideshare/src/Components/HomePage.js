@@ -57,7 +57,6 @@ function HomePage(props) {
       <div className="error">{errorMessages.message}</div>
     );
   };
-  console.log("isSubmitted:", errorMessages);
   return (
     <nav>
       <div className="container_login">
