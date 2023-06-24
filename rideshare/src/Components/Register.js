@@ -33,17 +33,7 @@ const Register = () => {
 
   const blog = { name, password };
   const handleSubmit = (event) => {
-    fetch("http://localhost:9002/users", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(blog),
-    })
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        console.log("data to enter", data);
-      });
+  
     setIsHome(true);
     let emailValid = userName.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,3})$/i);
     if (!password || password.length < 6) {
@@ -53,6 +43,17 @@ const Register = () => {
       setErrorMessages({ name: "uname", message: errors.uname });
     } else {
       setIsSubmitted(true);
+      fetch("http://localhost:9002/users", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(blog),
+      })
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          console.log("data to enter", data);
+        });
     }
   };
   useEffect(() => {
