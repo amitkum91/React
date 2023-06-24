@@ -22,8 +22,8 @@ function UserHome(props) {
     history.push({
       pathname: "/BookRide",
       state: {
-        userName: location.state.userName,
-        password: location.state.password,
+        userName: location?.state?.userName,
+        password: location?.state?.password,
       },
     });
   };
