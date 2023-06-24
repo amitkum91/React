@@ -7,12 +7,9 @@ import { NavLink, useLocation, useHistory } from "react-router-dom";
 import "../App.css";
 
 function UserHome(props) {
-  // console.log("userHome::::", props);
   const location = useLocation();
   const history = useHistory();
-  //console.log("location:::",location.state);
   const user = location.state;
-  //console.log("user::",user.state.userName);
   const [isHome, setIsHome] = useState(false);
   const goToHome = (event) => {
     setIsHome(true);
@@ -47,9 +44,9 @@ function UserHome(props) {
           </a>
           <input type="checkbox" id="tab-nav" className="tab-nav" />
           <label for="tab-nav" className="label">
-            <div class="burger"></div>
-            <div class="burger"></div>
-            <div class="burger"></div>
+            <div class="bgr"></div>
+            <div class="bgr"></div>
+            <div class="bgr"></div>
           </label>
           <ul className="content_nav">
             <li>
@@ -80,14 +77,13 @@ function UserHome(props) {
                 bookRide(e);
               }}
             >
-            Book a ride
+              Book a ride
             </button>
           </div>
         </div>
       </div>
-      
-        <Footer />
-    
+
+      <Footer />
     </div>
   );
 }
