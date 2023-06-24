@@ -1,32 +1,11 @@
 {
   "ratings": [
     {
-      "tripId": "ID45678973",
-      "rating": 2,
-      "feedback": "na",
-      "epoch": 1687590762031,
+      "tripId": 250339,
+      "rating": 3.5,
+      "feedback": "Any feedback is appreciated!",
+      "epoch": 1687634534244,
       "id": 1
-    },
-    {
-      "tripId": "ID45678973",
-      "rating": 5,
-      "feedback": "Any feedback is appreciated!",
-      "epoch": 1687614428894,
-      "id": 2
-    },
-    {
-      "tripId": "ID45678973",
-      "rating": 3.5,
-      "feedback": "Any feedback is appreciated!dd",
-      "epoch": 1687629202687,
-      "id": 3
-    },
-    {
-      "tripId": "ID45678973",
-      "rating": 3.5,
-      "feedback": "Any feedback is appreciated!",
-      "epoch": 1687629193212,
-      "id": 4
     }
   ]
 }
