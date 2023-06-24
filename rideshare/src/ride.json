@@ -34,6 +34,20 @@
       "drop": "location4",
       "epoch": 1687285797073,
       "id": 5
+    },
+    {
+      "tripId": "ID45678923",
+      "pickup": "location1",
+      "drop": "location2",
+      "epoch": 1687518243053,
+      "id": 6
+    },
+    {
+      "tripId": "ID45678973",
+      "pickup": "location2",
+      "drop": "location3",
+      "epoch": 1687590503914,
+      "id": 7
     }
   ]
 }

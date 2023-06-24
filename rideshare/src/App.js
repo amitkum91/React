@@ -8,27 +8,9 @@ import HoverRating from './Components/Rating'
 import Create from './Components/recordRating';
 import GiveRatingLater from './Components/giveRatingLater'
 import EditRating from './Components/editRating'
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
+import UserHome from './Components/UserHome'
+import Register from './Components/Register'
+import Home from './Components/Home'
 
 function App() {
   return (
@@ -36,6 +18,15 @@ function App() {
        <Router>
         <Switch>
           <Route path="/" exact>
+            <Home />
+          </Route>
+          <Route path="/UserHome" exact>
+            <UserHome />
+          </Route>
+          <Route path="/Register" exact>
+            <Register />
+          </Route>
+          <Route path="/BookRide" exact>
             <BookRide />
           </Route>
 
