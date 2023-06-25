@@ -14,7 +14,8 @@ const Register = () => {
   const errors = {
     uname: "Invalid email",
     pass: "Password should not be blank, password length should be greater then 6",
-    loginMsg: "User already exists, Please login"
+    loginMsg: "User already exists, Please login",
+    drop : "User Type is required"
   };
   const [drop, setDrop] = useState("");
 
@@ -32,8 +33,8 @@ const Register = () => {
     setIsHome(true);
   };
   const name = userName;
-
-  const blog = { name, password };
+  const role = drop;
+  const blog = { name, password,  role };
   const handleSubmit = (event) => {
 
     ///checking if user exists
@@ -62,6 +63,8 @@ const Register = () => {
       setErrorMessages({ name: "pass", message: errors.pass });
     } else if (!userName || !emailValid) {
       setErrorMessages({ name: "uname", message: errors.uname });
+    }else if(!drop){
+      setErrorMessages({ name: "drop", message: errors.drop });
     } else {
       if(isHome){
       setIsSubmitted(true);
@@ -154,6 +157,7 @@ const Register = () => {
             <label class="lbl">User Type </label>
             <select
               type="text"
+              name="drop"
               value={drop}
               onChange={(e) => setDrop(e.target.value)}
             >
@@ -162,6 +166,7 @@ const Register = () => {
                 <option value={option.value}>{option.label}</option>
               ))}
             </select>
+            {renderErrorMessage("drop")}
           </div>
           <div className="button-container">
             <button

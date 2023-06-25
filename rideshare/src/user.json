@@ -3,9 +3,14 @@
     {
       "name": "abcde@gmail.com",
       "password": "ramashjh",
-      "id": 44
-    }
-
+      "id": 44,
+      "role": "customer"
+    },
+    {
+      "name": "rozeline2@gmail.com",
+      "password": "rozeline@123",
+      "role": "Customer",
+      "id": 45
     }
   ]
 }
