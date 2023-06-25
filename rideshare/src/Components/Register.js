@@ -10,9 +10,11 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [userName, setUserName] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
+
   const errors = {
     uname: "Invalid email",
     pass: "Password should not be blank, password length should be greater then 6",
+    loginMsg: "User already exists, Please login"
   };
   const [drop, setDrop] = useState("");
 
@@ -33,15 +35,34 @@ const Register = () => {
 
   const blog = { name, password };
   const handleSubmit = (event) => {
+    ///checking if user exists
+    const userData = fetch("http://localhost:9002/users")
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      console.log("data json:::",JSON.stringify(data));
+          data.map((item) => {
+            if(item.name === userName){
+              setErrorMessages({ name: "uname", message: errors.loginMsg });
+              console.log("userName",userName);
+              setIsHome(false);
+              setIsSubmitted(false);
+              //alert("user already exists");
+              return;
+            }else{
+              setIsHome(true);
+            }
+          });
+    })
   
-    setIsHome(true);
     let emailValid = userName.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,3})$/i);
     if (!password || password.length < 6) {
-      // Invalid password
       setErrorMessages({ name: "pass", message: errors.pass });
     } else if (!userName || !emailValid) {
       setErrorMessages({ name: "uname", message: errors.uname });
     } else {
+      if(isHome){
       setIsSubmitted(true);
       fetch("http://localhost:9002/users", {
         method: "POST",
@@ -55,9 +76,11 @@ const Register = () => {
           console.log("data to enter", data);
         });
     }
+  }
   };
   useEffect(() => {
     if (isHome && isSubmitted) {
+      setErrorMessages({});
       alert("Account created successfully.");
       history.push("/", {
         replace: true,
