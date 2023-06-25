@@ -1,14 +1,10 @@
 {
   "users": [
     {
-      "name": "abcde@gmail.com",
-      "password": "ramashjh",
+      "name": "ght@gmail.com",
+      "password": "5667788899",
+      "role": "Customer",
       "id": 1
-    },
-    {
-      "name": "abe@gmail.com",
-      "password": "1234567",
-      "id": 2
     }
   ]
 }

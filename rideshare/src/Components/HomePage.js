@@ -13,6 +13,7 @@ function HomePage(props) {
   const errors = {
     uname: "INVALID USERNAME/PASSWORD",
     pass: "INVALID USERNAME/PASSWORD",
+    registerUser: "PLEASE REGISTER YOURSELF!"
   };
 
   const handleSubmit = (event) => {
@@ -24,21 +25,26 @@ function HomePage(props) {
       })
       .then((data) => {
         // console.log(JSON.stringify(data));
-        let newArr = data.map((item) => {
-          if (userData) {
-            if (item.password !== password) {
-              // Invalid password
-              setErrorMessages({ name: "pass", message: errors.pass });
-            } else if (item.name !== userName) {
-              setErrorMessages({ name: "uname", message: errors.uname });
+        if (data && data.length > 0) {
+          let newArr = data.map((item) => {
+            if (userData) {
+              if (item.password !== password) {
+                // Invalid password
+                setErrorMessages({ name: "pass", message: errors.pass });
+              } else if (item.name !== userName) {
+                setErrorMessages({ name: "uname", message: errors.uname });
+              } else {
+                setIsSubmitted(true);
+              }
             } else {
-              setIsSubmitted(true);
+              // Username not found
+              setErrorMessages({ name: "uname", message: errors.uname });
             }
-          } else {
-            // Username not found
-            setErrorMessages({ name: "uname", message: errors.uname });
-          }
-        });
+          });
+
+        } else {
+          setErrorMessages({ name: "uname", message: errors.registerUser });
+        }
       })
       .catch((error) => {
         alert("There was a problem with the request.");

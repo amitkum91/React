@@ -43,6 +43,7 @@ const Register = () => {
         return response.json();
       })
       .then((data) => {
+        if(data && data.length > 0){
         data.map((item) => {
           if (item.name === userName) {
             setErrorMessages({ name: "uname", message: errors.loginMsg });
@@ -55,6 +56,9 @@ const Register = () => {
             setIsHome(true);
           }
         });
+      }else{
+        setIsHome(true);
+      }
       })
 
 
