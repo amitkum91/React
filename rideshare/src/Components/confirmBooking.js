@@ -166,7 +166,7 @@ const ConfirmBooking = (props) => {
                     <br />
                     <br />
                     <p id="cancel_window">Cancel within Pickup ETA</p>
-                    <Countdown date={Date.now() + 10000}>
+                    <Countdown date={Date.now() + 60000}>
                         <div>
                             <Completionist />
                             <RemoveElement id="cancel_window" />

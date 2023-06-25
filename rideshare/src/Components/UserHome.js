@@ -11,7 +11,7 @@ function UserHome(props) {
   const history = useHistory();
   const user = location.state;
   let loggedInFlag = false;
-  if(user?.state?.userName){
+  if (user?.state?.userName) {
     loggedInFlag = true;
   }
   const [isHome, setIsHome] = useState(false);
@@ -82,6 +82,26 @@ function UserHome(props) {
             >
               Book a ride
             </button>
+            <br />
+            <br />
+            <p>
+              <table>
+                <tr>
+                  <td>
+                    <button type="submit" onClick={() => history.push({
+                      pathname: '/giveRating'
+                    }
+                    )} >Rate Ride</button>
+                  </td>
+                  <td>
+                    <button type="submit" onClick={() => history.push({
+                      pathname: '/editRating'
+                    }
+                    )} >Edit Rating</button>
+                  </td>
+                </tr>
+              </table>
+            </p>
           </div>
         </div>
       </div>
