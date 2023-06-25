@@ -78,26 +78,6 @@ function BookRide(props) {
                     </tr>
                 </table>
             </form>
-            <p></p>
-            <p>
-                <table>
-                    <tr>
-                        <td>
-                            <button type="submit" onClick={() => history.push({
-                                pathname: '/giveRating'
-                            }
-                            )} >Rate Ride</button>
-                        </td>
-                        <td>
-                            <button type="submit" onClick={() => history.push({
-                                pathname: '/editRating'
-                            }
-                            )} >Edit Rating</button>
-                        </td>
-                    </tr>
-                </table>
-            </p>
-
         </div>
     );
 }
