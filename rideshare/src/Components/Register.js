@@ -38,24 +38,24 @@ const Register = () => {
 
     ///checking if user exists
     const userData = fetch("http://localhost:9002/users")
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-          data.map((item) => {
-            if(item.name === userName){
-              setErrorMessages({ name: "uname", message: errors.loginMsg });
-              console.log("userName",userName);
-              setIsHome(false);
-              setIsSubmitted(false);
-              //alert("user already exists");
-              return;
-            }else{
-              setIsHome(true);
-            }
-          });
-    })
-  
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        data.map((item) => {
+          if (item.name === userName) {
+            setErrorMessages({ name: "uname", message: errors.loginMsg });
+            console.log("userName", userName);
+            setIsHome(false);
+            setIsSubmitted(false);
+            //alert("user already exists");
+            return;
+          } else {
+            setIsHome(true);
+          }
+        });
+      })
+
 
     let emailValid = userName.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,3})$/i);
     if (!password || password.length < 6) {
@@ -63,21 +63,21 @@ const Register = () => {
     } else if (!userName || !emailValid) {
       setErrorMessages({ name: "uname", message: errors.uname });
     } else {
-      if(isHome){
-      setIsSubmitted(true);
-      fetch("http://localhost:9002/users", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(blog),
-      })
-        .then((response) => {
-          return response.json();
+      if (isHome) {
+        setIsSubmitted(true);
+        fetch("http://localhost:9002/users", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(blog),
         })
-        .then((data) => {
-          console.log("data to enter", data);
-        });
+          .then((response) => {
+            return response.json();
+          })
+          .then((data) => {
+            console.log("data to enter", data);
+          });
+      }
     }
-  }
   };
   useEffect(() => {
     if (isHome && isSubmitted) {
