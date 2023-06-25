@@ -1,29 +1,11 @@
 {
   "users": [
     {
-      "name": "ramash@gmail.com",
-      "password": "ramashjh",
-      "id": 43
-    },
-    {
       "name": "abcde@gmail.com",
       "password": "ramashjh",
       "id": 44
-    },
-    {
-      "name": "ght@gmail.com",
-      "password": "ramashjh",
-      "id": 45
-    },
-    {
-      "name": "ss@gmail.com",
-      "password": "ramashjh",
-      "id": 46
-    },
-    {
-      "name": "rozeline@gmail.com",
-      "password": "rozeline@123",
-      "id": 47
+    }
+
     }
   ]
 }

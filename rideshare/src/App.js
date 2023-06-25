@@ -1,5 +1,5 @@
 import './App.css';
-import BookRide from './Components/bookRide1';
+import BookRide from './Components/bookRide';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import RideOption from './Components/RideOptions'
 import ConfirmBooking from './Components/confirmBooking'

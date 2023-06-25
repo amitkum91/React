@@ -35,13 +35,13 @@ const Register = () => {
 
   const blog = { name, password };
   const handleSubmit = (event) => {
+
     ///checking if user exists
     const userData = fetch("http://localhost:9002/users")
     .then((response) => {
       return response.json();
     })
     .then((data) => {
-      console.log("data json:::",JSON.stringify(data));
           data.map((item) => {
             if(item.name === userName){
               setErrorMessages({ name: "uname", message: errors.loginMsg });
@@ -56,6 +56,7 @@ const Register = () => {
           });
     })
   
+
     let emailValid = userName.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,3})$/i);
     if (!password || password.length < 6) {
       setErrorMessages({ name: "pass", message: errors.pass });

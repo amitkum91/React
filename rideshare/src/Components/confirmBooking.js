@@ -16,19 +16,16 @@ const assignDriver = {
         "location2": {
             "driverName": "Johnny Doe",
             "vehicleNo": "NH01JK2348",
-            "tripId": "ID45678973",
             "ETA": "1 min"
         },
         "location3": {
             "driverName": "Robert Doe",
             "vehicleNo": "NH01JK2305",
-            "tripId": "ID48678923",
             "ETA": "1 min"
         },
         "location4": {
             "driverName": "William Doe",
             "vehicleNo": "NH01JK2347",
-            "tripId": "ID45676923",
             "ETA": "1 min"
         }
     },
@@ -37,25 +34,21 @@ const assignDriver = {
         "location1": {
             "driverName": "Ken Doe",
             "vehicleNo": "NH01GK2345",
-            "tripId": "ID45678923",
             "ETA": "1 min"
         },
         "location2": {
             "driverName": "Kenny Doe",
             "vehicleNo": "NH01GK2348",
-            "tripId": "ID45678973",
             "ETA": "1 min"
         },
         "location3": {
             "driverName": "Clark Doe",
             "vehicleNo": "NH01GK2305",
-            "tripId": "ID48678923",
             "ETA": "1 min"
         },
         "location4": {
             "driverName": "Peter Doe",
             "vehicleNo": "NH01GK2347",
-            "tripId": "ID45676923",
             "ETA": "1 min"
         }
     }
@@ -79,6 +72,12 @@ const ConfirmBooking = (props) => {
             return false;
     }
 
+    function getTripId() {
+        return Math.floor(100000 + Math.random() * 900000)
+    }
+
+    const tripId = getTripId()
+
     function RideAvailability() {
         if (!toRender()) {
             return <h2>No available drivers under {location.state.category} Category for pickup Location '{location.state.pick}'</h2>
@@ -95,7 +94,7 @@ const ConfirmBooking = (props) => {
                             </div>
                             <div>
                                 <h5>TripId</h5>
-                                <h6>{assignDriver[location.state.category][location.state.pick]['tripId']}</h6>
+                                <h6>{tripId}</h6>
                             </div>
                             <div>
                                 <h5>DriverName</h5>
@@ -122,19 +121,13 @@ const ConfirmBooking = (props) => {
 
     }
 
-    function getTripId() {
-        if (toRender())
-            return assignDriver[location.state.category][location.state.pick]['tripId'];
-        else
-            return ''
-
-    }
+    
 
     let parms = {
         pickup: location.state.pick,
         drop: location.state.drop,
         epoch: Date.now(),
-        tripId: getTripId()
+        tripId: tripId
     };
 
     const Completionist = () => <span>Sorry! cancellation window over</span>;
@@ -156,7 +149,7 @@ const ConfirmBooking = (props) => {
                 <button type="submit" onClick={() => history.push({
                     pathname: '/rideOptions/rateBooking',
                     state: {
-                        tripId: assignDriver[location.state.category][location.state.pick]['tripId']
+                        tripId: tripId
                     }
                 }
                 )} >End Ride</button>
