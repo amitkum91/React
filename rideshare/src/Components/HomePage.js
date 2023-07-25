@@ -19,7 +19,7 @@ function HomePage(props) {
   const handleSubmit = (event) => {
     //Prevent page reload
     event.preventDefault();
-    const userData = fetch("http://localhost:9002/users")
+    const userData = fetch("http://localhost:8000/api/register")
       .then((response) => {
         return response.json();
       })

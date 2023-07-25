@@ -9,7 +9,7 @@ function GiveRatingLater() {
     const history = useHistory();
 
     const FetchData = () => {
-        fetch('http://localhost:7001/rides', { method: 'GET' })
+        fetch('http://localhost:8000/api/ride', { method: 'GET' })
             .then((response) => response.json())
             .then((actualData) => {
                 console.log(actualData);
@@ -24,7 +24,7 @@ function GiveRatingLater() {
 
 
     const FetchFeedback = () => {
-        fetch('http://localhost:7000/ratings', { method: 'GET' })
+        fetch('http://localhost:8000/api/rating', { method: 'GET' })
             .then((response) => response.json())
             .then((actualData) => {
                 console.log(actualData);

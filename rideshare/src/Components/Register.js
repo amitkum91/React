@@ -38,7 +38,7 @@ const Register = () => {
   const handleSubmit = (event) => {
 
     ///checking if user exists
-    const userData = fetch("http://localhost:9002/users")
+    const userData = fetch("http://localhost:8000/api/register")
       .then((response) => {
         return response.json();
       })
@@ -72,7 +72,7 @@ const Register = () => {
     } else {
       if (isHome) {
         setIsSubmitted(true);
-        fetch("http://localhost:9002/users", {
+        fetch("http://localhost:8000/api/register", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(blog),

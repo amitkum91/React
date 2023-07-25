@@ -12,7 +12,7 @@ const Create = (props) => {
 
 
     const CreateJson = () => {
-        fetch('http://localhost:7000/ratings', {
+        fetch('http://localhost:8000/api/rating', {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(blog)
@@ -22,7 +22,7 @@ const Create = (props) => {
     }
 
     const UpdateJson = () => {
-        fetch(`http://localhost:7000/ratings/${location.state.id}`, {
+        fetch(`http://localhost:8000/api/rating/${location.state.id}/`, {
             method: 'PUT',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(blog)

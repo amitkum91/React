@@ -9,7 +9,7 @@ function EditRating() {
 
 
     const FetchFeedback = () => {
-        fetch('http://localhost:7000/ratings', { method: 'GET' })
+        fetch('http://localhost:8000/api/rating', { method: 'GET' })
             .then((response) => response.json())
             .then((actualData) => {
                 console.log(actualData);
